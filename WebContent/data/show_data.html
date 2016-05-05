@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>民航主要航段运量</title>
+    <script type="text/javascript" src="./js/commen/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="./js/commen/esl.js"></script>
+    <script type="text/javascript" src="./js/commen/geodata.js"></script>
+    <script type="text/javascript" src="./js/data/chartdata.js"></script>
+</head>
+<body style="background:#1b1b1b;">
+    <!--图表容器 -->                                 
+    <div  style="margin-bottom: 0px; min-height: 850px; margin-bottom: 0px;" id='mymap'>
+    </div>
+    <script type="text/javascript">
+        var myChart;
+        var eCharts;
+        // 路径配置
+
+        var fileLocation = './js/commen/echarts-map';
+        require.config({
+            paths: {
+                echarts: fileLocation,
+                'echarts/chart/map': fileLocation
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/map', // 使用柱状图就加载bar模块，按需加载
+            ], DrawEChart //异步加载的回调函数绘制图表  
+		)
+        /**
+        * 根据数据渲染地图
+        */
+        function DrawEChart(ec) {
+            eCharts = ec;
+            // 基于准备好的dom，初始化echarts图表
+            myChart = eCharts.init(document.getElementById('mymap'));
+            var option = {
+                backgroundColor: '#1b1b1b',
+                color: ['gold', 'aqua', 'lime'],
+                title: {
+                    text: '民航主要航段运量',
+                    x: 'center',
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                legend: {
+                	show : false,
+                    orient: 'vertical',
+                    x: 'right',
+                    y: 'center',
+                    data: ['计费重量（吨）'],
+                    selectedMode: 'single',
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                dataRange: {
+                    min: 0,
+                    max: 3217774.5,
+                    calculable: true,
+                    color: ['#ff3333', 'orange', 'yellow', 'lime', 'aqua'],
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                series: [
+                    {
+                        name: '计费重量（吨）',
+                        type: 'map',
+                        roam: true,
+                        hoverable: false,
+                        mapType: 'china',
+                        scaleLimit: { min: 0.8, max: 1.5 },
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: true,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+
+                                },
+                                borderColor: 'rgba(100,149,237,1)',
+                                borderWidth: 0.5,
+                                areaStyle: {
+                                    color: '#1b1b1b'
+                                }
+                            }
+                        },
+                        data: [],
+                        markLine: {
+                            smooth: true,
+                            effect: {
+                                show: true,
+                                scaleSize: 1,
+                                period: 30,
+                                color: '#fff',
+                                shadowBlur: 10
+                            },
+                            itemStyle: {
+                                normal: {
+                                    borderWidth: 1,
+                                    label: {
+                                        show: false
+                                    },
+                                    lineStyle: {
+                                        type: 'solid',
+                                        shadowBlur: 10
+                                    }
+                                }
+                            },
+                            data:chartData
+                        }, markPoint: {
+                            symbol: 'emptyCircle',
+                            symbolSize: function (v) {
+                                return 6;
+                            },
+                            effect: {
+                                show: true,
+                                shadowBlur: 0
+                            },
+                            itemStyle: {
+                                normal: {
+                                    label: { show: false }
+                                },
+                                emphasis: {
+                                    label: { position: 'top' }
+                                }
+                            },
+                            data: [
+
+                            ]
+                        },                       
+                        geoCoord: geoCoord
+                    }
+                ]
+            }
+            // 为echarts对象加载数据 
+            myChart.setOption(option);
+        }
+    </script>
+</body>
+</html>

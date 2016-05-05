@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>line</title>
+	<!--<script type="text/javascript" src="js/esl.js"></script>-->
+</head>
+<body>
+	<div id="container" style="width: 800px;height: 350px;border: 5px solid #ccc;"></div>
+
+	<script type="text/javascript" src="js/echarts-all.js" ></script>
+	<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('container'));
+		option = {
+		    title : {
+		        text: '铁路货运量-分干线（年）',
+//		        subtext: '纯属虚构'
+		    },
+		    tooltip : {
+		        trigger: 'axis'
+		    },
+//		    legend: {
+//		        data:['蒸发量','降水量']
+//		    },
+		    toolbox: {
+		        show : true,
+		        feature : {
+		            mark : {show: true},
+		            dataView : {show: true, readOnly: false},
+		            magicType : {show: true, type: ['line', 'bar']},
+		            restore : {show: true},
+		            saveAsImage : {show: true}
+		        }
+		    },
+		    calculable : true,
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ['京哈线','京广线','京泸线','京九线','滨州线','滨绥线','大秦线','石太线','石德线','北同蒲线','南同蒲线','包兰线','新石线','太焦线','焦柳线','胶济线','陇海线','泸昆线','宝成线','南昆线','成昆线','兰新线','青藏线']
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'货运量',
+		            type:'bar',
+		            data:[1006.51, 5965.94, 4993.34, 3851.68, 14598.81, 7091.24, 901.58, 2782.26, 5865.04, 477.70, 18455.81, 5359.38, 6785.76, 5616.71, 7061.88, 2775.20, 1061.52, 6393.57, 5997.66, 719.18, 1432.06, 3281.62, 4821.23, 2714.60 
+],
+//		            markPoint : {
+//		                data : [
+//		                    {type : 'max', name: '最大值'},
+//		                    {type : 'min', name: '最小值'}
+//		                ]
+//		            },
+//		            markLine : {
+//		                data : [
+//		                    {type : 'average', name: '平均值'}
+//		                ]
+//		            }
+		        },
+		        {
+//		            name:'降水量',
+//		            type:'bar',
+//		            data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+//		            markPoint : {
+//		                data : [
+//		                    {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
+//		                    {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+//		                ]
+//		            },
+		            markLine : {
+		                data : [
+		                    {type : 'average', name : '平均值'}
+		                ]
+		            }
+		        }
+		    ]
+		};
+	    myChart.setOption(option);
+        
+        
+        
+	</script>
+	
+</body>
+</html>

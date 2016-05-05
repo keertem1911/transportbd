@@ -1,0 +1,125 @@
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:link {
+	text-decoration: none;
+}
+.sec1 {
+	width: 100%;
+	height: 230px;
+	background: url('../images/bg.png') no-repeat center center;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+.bg {
+	width: 250px;
+	height: 100%;
+	margin: 0 auto;
+}
+.bg div {
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+div.index {
+	font-size: 32px;
+	padding-top: 70px;
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+
+.sec2 {
+	width: 1050px;
+	margin: 30px auto 0;
+	overflow: hidden;
+}
+.container_left {
+	width: 230px;
+}
+.container_left>ul,
+.container_left>ul>li,
+.locker_head{
+	width: 100%;
+}
+.container_left ul li {
+	border: 1px solid #ccc;
+	border-top: none;
+	/*height: 45px;
+	line-height: 45px;*/
+	padding: 7px 40px 7px 20px;
+	background: url('../images/clock-smoll.png') no-repeat 90% center;
+	cursor: pointer;
+	font-size: 14px;
+}
+.container_left ul li.active {
+	background-image: url('../images/clock-smoll-red.png');
+}
+.locker_head {
+	/*height: 50px;
+	line-height: 50px;*/
+	padding: 15px 45px 15px 15px;
+	border: 1px solid #eeeeee;
+	background-image: url('../images/clocker-close.png');
+	background-repeat: no-repeat;
+	background-position: 90% center;
+	background-color: #5F5F5F;
+	color: #FFFFFF;
+	font-weight: 600;
+	font-size: 14px;
+	cursor: pointer;
+}
+.locker-active {
+	background-color: #252525;
+	background-image: url('../images/clocker-open.png');
+}
+.container_right,.container_left{
+	float: left;
+}
+.container_right {
+	width: 800px;
+	padding-left: 20px;
+}
+.content_title {
+	width: 100%;
+	padding: 20px 30px;
+	background: #EEE;
+	overflow: hidden;
+}
+.title {
+	font-size: 16px;
+	font-family: "微软雅黑" arial;
+	/*font-weight: 600;*/
+	float: left;
+}
+
+.brand {
+	color: #666;
+	float: right;
+	font-size: 14px;
+}
+.brand a {
+	color: #666;
+}
+.content_main{
+	width: 100%;
+	/*height: 600px;*/
+}
+.dec {
+	padding: 10px;
+	margin-bottom: 30px;
+}
+.dec h4{
+	padding: 5px 0 10px 0;
+}
+.dec p{
+	text-indent: 30px;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+
+
+
+
